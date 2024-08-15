@@ -1,0 +1,92 @@
+@startuml
+
+
+class Vehiculo{
+String Marca
+String Placa
+String Tipo
+String Color
+}
+class Usuario{
+Long Identificacion
+String Tipo
+String Nombre
+String Apellido1
+String Apellido2
+String Email
+String Telefono
+String Rol 
+Var Foto
+Boolean Reserva
+}
+class Parqueadero{
+String Id 
+String Nombre
+String Area 
+Cubiculo 
+String Direccion
+Boolean Estado
+}
+class Cubiculo{
+String Id
+int Numero
+int Ancho 
+int Largo  
+Boolean Estado
+String Tipo
+}
+class Horario{
+String Id
+Var Dia
+String Hora_Inicio
+String Hora_Fin
+}
+class Servicio{
+String Id
+String Fecha_Entrada
+String Fecha_Salida
+String Conductor
+Vehiculo
+String Guardia_Entrada
+String Guardia_Patio
+Cubiculo
+Parqueadero
+String Descripcion
+var Foto
+}
+class Tarifa{
+String Id
+int Valor
+String Tipo
+int unidad
+}
+class Guardia{
+String Identificacion
+String Tipo
+String Nombre
+String Apellido1
+String Apellido2
+String Email
+String Telefono
+var Foto
+}
+class Turno{
+String Id
+String Horario
+Guardia
+Parqueadero
+String Cargo 
+String Observacion
+String Cede
+}
+
+Parqueadero --> Turno
+Vehiculo --> Servicio
+Usuario --> Servicio
+Parqueadero --> Cubiculo
+Cubiculo --> Servicio
+Horario --> Turno
+Servicio --> Tarifa
+Guardia --> Turno
+
+@enduml
